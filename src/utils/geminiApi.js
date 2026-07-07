@@ -1,7 +1,7 @@
 const GEMINI_API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
 const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`;
 
-const SYSTEM_PROMPT = `You are "Smart Bharat", a helpful and knowledgeable AI civic assistant for Indian citizens. Your role is to:
+const SYSTEM_PROMPT = `You are "Vakratunda AI", a helpful and knowledgeable AI civic assistant for Indian citizens. Your role is to:
 
 1. Explain government schemes, policies, and services in simple, easy-to-understand language
 2. Guide citizens through processes like applying for documents, registering complaints, or accessing welfare programs
@@ -30,7 +30,7 @@ export async function sendMessage(messages) {
       },
       {
         role: 'model',
-        parts: [{ text: 'Namaste! I am Smart Bharat, your AI civic companion. I\'m here to help you navigate government services, schemes, and processes. How can I assist you today? आप हिंदी या English में बात कर सकते हैं।' }]
+        parts: [{ text: 'Namaste! I am Vakratunda AI, your AI civic companion. I\'m here to help you navigate government services, schemes, and processes. How can I assist you today? आप हिंदी या English में बात कर सकते हैं।' }]
       },
       ...messages
     ];
@@ -175,7 +175,7 @@ Need help with anything else?`);
       } else if (msg.includes('hindi') || msg.includes('हिंदी') || msg.includes('हिन्दी')) {
         resolve(`## नमस्ते! 🙏
 
-मैं **स्मार्ट भारत** हूँ, आपका AI नागरिक सहायक।
+मैं **वक्रतुण्ड AI** हूँ, आपका AI नागरिक सहायक।
 
 मैं आपकी इन विषयों में मदद कर सकता हूँ:
 
@@ -210,7 +210,7 @@ Here are some key welfare schemes you should know about:
 
 Would you like detailed information about any specific scheme?`);
       } else {
-        resolve(`## Welcome to Smart Bharat! 🇮🇳
+        resolve(`## Welcome to Vakratunda AI! 🇮🇳
 
 I'm your AI civic companion, here to help you navigate government services and schemes.
 

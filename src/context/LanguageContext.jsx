@@ -9,10 +9,10 @@ const translations = {
     navReport: 'Report Issue',
     navTrack: 'Track',
     langToggle: 'हिंदी',
-    appName: 'Smart Bharat',
+    appName: 'Vakratunda AI',
 
     // Hero
-    heroTagline: 'Your AI companion for government services',
+    heroTagline: 'Divine Intelligence for Every Citizen',
     heroSubtext: 'Navigate government schemes, file complaints, and get instant answers — in English or Hindi.',
     heroCta: 'Chat with Companion',
     heroSecondaryCta: 'Explore Services',
@@ -32,7 +32,7 @@ const translations = {
     chatTitle: 'AI Civic Companion',
     chatSubtitle: 'Ask about government services, schemes, or processes',
     chatPlaceholder: 'Ask about any government service...',
-    chatWelcome: 'Namaste! 🙏 I\'m your Smart Bharat AI companion. I can help you with government services, schemes, and civic processes. Ask me anything in English or Hindi!',
+    chatWelcome: 'Namaste! 🙏 I\'m your Vakratunda AI companion. I can help you with government services, schemes, and civic processes. Ask me anything in English or Hindi!',
     chatSend: 'Send',
 
     // Services
@@ -84,7 +84,7 @@ const translations = {
     footerQuickLinks: 'Quick Links',
     footerResources: 'Resources',
     footerConnect: 'Connect',
-    footerRights: '© 2026 Smart Bharat. Built for Digital India.',
+    footerRights: '© 2026 Vakratunda AI. Built for Digital India.',
     footerDisclaimer: 'This is a hackathon demo project. Not affiliated with any government body.',
   },
   hi: {
@@ -94,9 +94,9 @@ const translations = {
     navReport: 'शिकायत दर्ज करें',
     navTrack: 'ट्रैक करें',
     langToggle: 'English',
-    appName: 'स्मार्ट भारत',
+    appName: 'वक्रतुण्ड AI',
 
-    heroTagline: 'सरकारी सेवाओं के लिए आपका AI साथी',
+    heroTagline: 'हर नागरिक के लिए दिव्य बुद्धिमत्ता',
     heroSubtext: 'सरकारी योजनाओं को समझें, शिकायत दर्ज करें, और तुरंत जवाब पाएं — हिंदी या English में।',
     heroCta: 'AI से बात करें',
     heroSecondaryCta: 'सेवाएं देखें',
@@ -114,7 +114,7 @@ const translations = {
     chatTitle: 'AI नागरिक सहायक',
     chatSubtitle: 'सरकारी सेवाओं, योजनाओं, या प्रक्रियाओं के बारे में पूछें',
     chatPlaceholder: 'किसी भी सरकारी सेवा के बारे में पूछें...',
-    chatWelcome: 'नमस्ते! 🙏 मैं आपका स्मार्ट भारत AI साथी हूँ। मैं आपकी सरकारी सेवाओं, योजनाओं और नागरिक प्रक्रियाओं में मदद कर सकता हूँ। हिंदी या English में कुछ भी पूछें!',
+    chatWelcome: 'नमस्ते! 🙏 मैं आपका वक्रतुण्ड AI साथी हूँ। मैं आपकी सरकारी सेवाओं, योजनाओं और नागरिक प्रक्रियाओं में मदद कर सकता हूँ। हिंदी या English में कुछ भी पूछें!',
     chatSend: 'भेजें',
 
     servicesTitle: 'सेवा निर्देशिका',
@@ -162,7 +162,7 @@ const translations = {
     footerQuickLinks: 'त्वरित लिंक',
     footerResources: 'संसाधन',
     footerConnect: 'जुड़ें',
-    footerRights: '© 2026 स्मार्ट भारत। डिजिटल इंडिया के लिए बनाया गया।',
+    footerRights: '© 2026 वक्रतुण्ड AI। डिजिटल इंडिया के लिए बनाया गया।',
     footerDisclaimer: 'यह एक हैकाथॉन डेमो प्रोजेक्ट है। किसी सरकारी निकाय से संबद्ध नहीं।',
   }
 };
