@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { AlertTriangle, MapPin, FileText, CheckCircle, Send, RotateCcw, ClipboardList, Copy, Check, Camera, X, Loader2 } from 'lucide-react';
+import { AlertTriangle, MapPin, FileText, CheckCircle, Send, RotateCcw, ClipboardList, Copy, Check, Camera, X, Loader2, Navigation } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { analyzeImage } from '../utils/GroqApi';
 
@@ -48,6 +48,22 @@ export default function ComplaintForm() {
     const year = new Date().getFullYear();
     const num = String(Math.floor(Math.random() * 9999) + 1).padStart(4, '0');
     return `CIV-${year}-${num}`;
+  };
+
+  const handleGetLocation = () => {
+    if ("geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        // Formats the coordinates cleanly
+        const lat = position.coords.latitude.toFixed(4);
+        const lng = position.coords.longitude.toFixed(4);
+        setFormData(prev => ({ ...prev, location: `Lat: ${lat}, Lng: ${lng} (Auto-detected)` }));
+      }, function(error) {
+        console.error("Error Code = " + error.code + " - " + error.message);
+        alert("Unable to retrieve your location. Please type it manually.");
+      });
+    } else {
+      alert("Geolocation is not supported by your browser");
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -233,21 +249,32 @@ export default function ComplaintForm() {
           </div>
 
           {/* Location */}
+          {/* Location */}
           <div>
             <label className="block text-sm font-medium text-white mb-2">
               <MapPin className="w-4 h-4 inline mr-1.5 text-gray-500" />
               {t('issueLocation')}
             </label>
-            <input
-              type="text"
-              value={formData.location}
-              onChange={(e) => setFormData(prev => ({ ...prev, location: e.target.value }))}
-              placeholder={t('locationPlaceholder')}
-              className="w-full bg-[#0d0d0f] border border-white/10 rounded-xl px-4 py-3 text-sm text-white
-                         placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-pink-500/50 
-                         focus:border-pink-500/50 transition-all duration-200"
-              required
-            />
+            <div className="relative flex items-center">
+              <input
+                type="text"
+                value={formData.location}
+                onChange={(e) => setFormData(prev => ({ ...prev, location: e.target.value }))}
+                placeholder={t('locationPlaceholder')}
+                className="w-full bg-[#0d0d0f] border border-white/10 rounded-xl pl-4 pr-12 py-3 text-sm text-white
+                           placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-pink-500/50 
+                           focus:border-pink-500/50 transition-all duration-200"
+                required
+              />
+              <button
+                type="button"
+                onClick={handleGetLocation}
+                title="Detect my location"
+                className="absolute right-2 p-2 text-gray-400 hover:text-pink-500 transition-colors"
+              >
+                <Navigation className="w-5 h-5" />
+              </button>
+            </div>
           </div>
 
           {/* Submit */}
