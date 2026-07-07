@@ -36,7 +36,7 @@ export async function sendMessage(messages) {
         'Authorization': `Bearer ${GROQ_API_KEY}`
       },
       body: JSON.stringify({
-        model: 'llama3-8b-llama-3.3-70b-versatile', // free, fast model on Groq
+        model: 'llama-3.1-8b-instant', // free, fast model on Groq
         messages: [
           { role: 'system', content: SYSTEM_PROMPT },
           ...formattedMessages
