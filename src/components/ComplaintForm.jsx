@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AlertTriangle, MapPin, FileText, CheckCircle, Send, RotateCcw, ClipboardList, Copy, Check, Camera, X, Loader2 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
-import { analyzeImage } from '../utils/geminiApi';
+import { analyzeImage } from '../utils/GroqApi';
 
 export default function ComplaintForm() {
   const { t } = useLanguage();

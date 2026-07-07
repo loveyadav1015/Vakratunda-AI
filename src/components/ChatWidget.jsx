@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { Send, Bot, User, Sparkles, ArrowDown, Mic } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
-import { sendMessage } from '../utils/geminiApi';
+import { sendMessage } from '../utils/GroqApi';
 
 function TypingIndicator() {
   return (
@@ -111,23 +111,23 @@ export default function ChatWidget({ initialMessage = null }) {
       recognitionRef.current = new SpeechRecognition();
       recognitionRef.current.continuous = false;
       recognitionRef.current.interimResults = false;
-      
+
       recognitionRef.current.onresult = (event) => {
         const transcript = event.results[0][0].transcript;
         setInput((prev) => (prev + ' ' + transcript).trim());
         setIsListening(false);
       };
-      
+
       recognitionRef.current.onerror = (event) => {
         console.error("Speech recognition error:", event.error);
         setIsListening(false);
       };
-      
+
       recognitionRef.current.onend = () => {
         setIsListening(false);
       };
     }
-    
+
     return () => {
       if (recognitionRef.current) {
         recognitionRef.current.abort();
@@ -140,7 +140,7 @@ export default function ChatWidget({ initialMessage = null }) {
       alert("Speech recognition is not supported in your browser.");
       return;
     }
-    
+
     if (isListening) {
       recognitionRef.current.stop();
       setIsListening(false);
@@ -246,16 +246,14 @@ export default function ChatWidget({ initialMessage = null }) {
           {messages.map((msg, i) => (
             <div
               key={i}
-              className={`flex items-start gap-3 message-enter ${
-                msg.role === 'user' ? 'flex-row-reverse' : ''
-              }`}
+              className={`flex items-start gap-3 message-enter ${msg.role === 'user' ? 'flex-row-reverse' : ''
+                }`}
             >
               {/* Avatar */}
-              <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 ${
-                msg.role === 'user'
+              <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 ${msg.role === 'user'
                   ? 'bg-white/10 border border-white/20'
                   : 'bg-[#111115] border border-white/10'
-              }`}>
+                }`}>
                 {msg.role === 'user'
                   ? <User className="w-4 h-4 text-white" />
                   : <Bot className="w-4 h-4 text-white" />
@@ -263,11 +261,10 @@ export default function ChatWidget({ initialMessage = null }) {
               </div>
 
               {/* Bubble */}
-              <div className={`max-w-[85%] sm:max-w-[75%] ${
-                msg.role === 'user'
+              <div className={`max-w-[85%] sm:max-w-[75%] ${msg.role === 'user'
                   ? 'bg-white text-black rounded-2xl rounded-tr-md px-4 py-3'
                   : 'bg-[#111115] border border-white/10 rounded-2xl rounded-tl-md px-4 py-3'
-              }`}>
+                }`}>
                 {msg.role === 'user' ? (
                   <p className="text-sm leading-relaxed">{msg.content}</p>
                 ) : (
@@ -334,11 +331,10 @@ export default function ChatWidget({ initialMessage = null }) {
             <button
               type="button"
               onClick={toggleListening}
-              className={`relative w-10 h-10 rounded-lg flex items-center justify-center transition-all duration-200 ${
-                isListening 
-                  ? 'bg-red-500/10 text-red-500' 
+              className={`relative w-10 h-10 rounded-lg flex items-center justify-center transition-all duration-200 ${isListening
+                  ? 'bg-red-500/10 text-red-500'
                   : 'text-gray-400 hover:text-white hover:bg-white/5'
-              }`}
+                }`}
             >
               <Mic className="w-4 h-4" />
               {isListening && <span className="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full animate-pulse" />}
