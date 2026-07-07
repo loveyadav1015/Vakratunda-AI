@@ -32,12 +32,22 @@ export default function Footer() {
           <div>
             <h3 className="text-sm font-semibold text-white mb-4 uppercase tracking-wider">{t('footerResources')}</h3>
             <ul className="space-y-2.5">
-              {['Digital India', 'India.gov.in', 'MyGov', 'Data.gov.in'].map((name) => (
-                <li key={name}>
-                  <span className="inline-flex items-center gap-1 text-sm text-gray-500 hover:text-white transition-colors duration-200 cursor-pointer">
-                    {name}
+              {[
+                { name: 'Digital India', href: 'https://www.digitalindia.gov.in/' },
+                { name: 'India.gov.in', href: 'https://www.india.gov.in/' },
+                { name: 'MyGov', href: 'https://www.mygov.in/' },
+                { name: 'Data.gov.in', href: 'https://data.gov.in/' }
+              ].map((item) => (
+                <li key={item.name}>
+                  <a 
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 text-sm text-gray-500 hover:text-white transition-colors duration-200 cursor-pointer"
+                  >
+                    {item.name}
                     <ExternalLink className="w-3 h-3" />
-                  </span>
+                  </a>
                 </li>
               ))}
             </ul>
