@@ -54,17 +54,30 @@ export default function Footer() {
           </div>
 
           {/* Connect */}
+          {/* Connect */}
           <div>
             <h3 className="text-sm font-semibold text-white mb-4 uppercase tracking-wider">{t('footerConnect')}</h3>
             <p className="text-sm text-gray-500 leading-relaxed mb-4">
               {t('footerDisclaimer')}
             </p>
             <div className="flex gap-3">
-              {[Globe, MessageSquare, Mail].map((Icon, i) => (
-                <button key={i} className="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center
-                                           text-gray-500 hover:text-white hover:bg-white/10 transition-all duration-200">
+              {[
+                // Replace these URLs with your actual hackathon links
+                { Icon: Globe, href: 'https://vakratunda-ai.vercel.app/', label: 'Live Site' },
+                { Icon: MessageSquare, href: 'https://github.com/loveyadav1015/Vakratunda-AI', label: 'GitHub Repo' },
+                { Icon: Mail, href: 'mailto:doflamingodon565@gmail.com', label: 'Email' }
+              ].map(({ Icon, href, label }, i) => (
+                <a 
+                  key={i} 
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                  className="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center
+                             text-gray-500 hover:text-white hover:bg-white/10 transition-all duration-200"
+                >
                   <Icon className="w-4 h-4" />
-                </button>
+                </a>
               ))}
             </div>
           </div>
