@@ -254,6 +254,3 @@ This is a hackathon demo project. Vakratunda AI is not affiliated with any gover
 
 ---
 
-## 📄 License
-
-MIT License — free to use, modify, and distribute.
